@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6c694020a80e3f812d5158220e2ea7fb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        bottom: 20px; left: 20px; width: 240px;
+        z-index:9999; font-size:14px;
+        background:white; padding:10px; border:2px solid grey; border-radius:8px;">
+    <b>🔎 Leyenda</b><br>
+    <i class="fa fa-user fa-lg" style="color:red"></i> Tu ubicación<br>
+    <i class="fa fa-star fa-lg" style="color:blue"></i> Top 3 restaurantes<br>
+    <i class="fa fa-cutlery fa-lg" style="color:gray"></i> Otros restaurantes
+    </div>
+    
+    
+            <div class="folium-map" id="map_6c694020a80e3f812d5158220e2ea7fb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6c694020a80e3f812d5158220e2ea7fb = L.map(
+                "map_6c694020a80e3f812d5158220e2ea7fb",
+                {
+                    center: [43.37295, -8.425016],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_46d2ea96f24d0d9e5aed58f6b9cadf8d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_46d2ea96f24d0d9e5aed58f6b9cadf8d.addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var marker_074d3169d1d39481236b8bb37f449ea5 = L.marker(
+                [43.368705, -8.417479],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_7368438aef96c83824d3bce3bd0e5d6f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5c633b5b3ffacc5610ca61cb17a7b9c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03a38cb5ba5aea87bfbe35fd735f0214 = $(`<div id="html_03a38cb5ba5aea87bfbe35fd735f0214" style="width: 100.0%; height: 100.0%;">📍 Tu ubicación</div>`)[0];
+                popup_5c633b5b3ffacc5610ca61cb17a7b9c2.setContent(html_03a38cb5ba5aea87bfbe35fd735f0214);
+            
+        
+
+        marker_074d3169d1d39481236b8bb37f449ea5.bindPopup(popup_5c633b5b3ffacc5610ca61cb17a7b9c2)
+        ;
+
+        
+    
+    
+                marker_074d3169d1d39481236b8bb37f449ea5.setIcon(icon_7368438aef96c83824d3bce3bd0e5d6f);
+            
+    
+            var marker_6018d3ab892eeea67e96ff790187bc11 = L.marker(
+                [43.37295, -8.425016],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_f0bdb94d9b5202503d6c44851dc9b2cd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7047b0292e7067dfb38bca11cb42b380 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_29e7357f4d413cbd38cb3969a5ca1f27 = $(`<div id="html_29e7357f4d413cbd38cb3969a5ca1f27" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>101 Smashburger</b><br>                 📍 a coruña<br>                 ⭐ 4.8 (51 reseñas) | 💶 ?<br>                 <a href="https://maps.google.com/?cid=4157197918131362736" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 624 34 84 11<br><a href='https://www.burger101.es/' target='_blank'>🔗 Web</a><br>🚚 Delivery<br></div></div>`)[0];
+                popup_7047b0292e7067dfb38bca11cb42b380.setContent(html_29e7357f4d413cbd38cb3969a5ca1f27);
+            
+        
+
+        marker_6018d3ab892eeea67e96ff790187bc11.bindPopup(popup_7047b0292e7067dfb38bca11cb42b380)
+        ;
+
+        
+    
+    
+            marker_6018d3ab892eeea67e96ff790187bc11.bindTooltip(
+                `<div>
+                     101 Smashburger
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6018d3ab892eeea67e96ff790187bc11.setIcon(icon_f0bdb94d9b5202503d6c44851dc9b2cd);
+            
+    
+            var marker_b99e37c8bab0e332b1fb090de987793f = L.marker(
+                [43.3486643, -8.2067558],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_3412f66ee1bffa95e5524c1378acac2a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9e393a856366299dc45d82db0a244e74 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2788a4291424072dc2d46481cb138d52 = $(`<div id="html_2788a4291424072dc2d46481cb138d52" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Perla Negra</b><br>                 📍 a coruña<br>                 ⭐ 4.7 (56 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=11445842825480328009&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 661 07 83 77<br></div></div>`)[0];
+                popup_9e393a856366299dc45d82db0a244e74.setContent(html_2788a4291424072dc2d46481cb138d52);
+            
+        
+
+        marker_b99e37c8bab0e332b1fb090de987793f.bindPopup(popup_9e393a856366299dc45d82db0a244e74)
+        ;
+
+        
+    
+    
+            marker_b99e37c8bab0e332b1fb090de987793f.bindTooltip(
+                `<div>
+                     Perla Negra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b99e37c8bab0e332b1fb090de987793f.setIcon(icon_3412f66ee1bffa95e5524c1378acac2a);
+            
+    
+            var marker_690ca56ccc6d994fa5f5c7b10bc2cafc = L.marker(
+                [43.374317, -8.394546],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_4ad3118aab9e9bafe381ed04d9d342ce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ee5d190a95cb50af7f1402fb28f16197 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fb44251df3b2aefa4816c6515d47d07a = $(`<div id="html_fb44251df3b2aefa4816c6515d47d07a" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Hamburgueseria Carnivale Burger Orillamar</b><br>                 📍 a coruña<br>                 ⭐ 4.6 (1214 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=13832815710488389954&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 881 12 47 50<br><a href='https://www.carnivale.es/' target='_blank'>🔗 Web</a><br><a href='https://pedidos.carnivale.es/carta/?out=pdf' target='_blank'>📋 Menú</a><br>🚚 Delivery<br>📅 Reservable<br><br><img src='https://media-cdn.tripadvisor.com/media/photo-m/1280/2b/33/35/2e/the-big-smash-burger.jpg' width='200'></div></div>`)[0];
+                popup_ee5d190a95cb50af7f1402fb28f16197.setContent(html_fb44251df3b2aefa4816c6515d47d07a);
+            
+        
+
+        marker_690ca56ccc6d994fa5f5c7b10bc2cafc.bindPopup(popup_ee5d190a95cb50af7f1402fb28f16197)
+        ;
+
+        
+    
+    
+            marker_690ca56ccc6d994fa5f5c7b10bc2cafc.bindTooltip(
+                `<div>
+                     Hamburgueseria Carnivale Burger Orillamar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_690ca56ccc6d994fa5f5c7b10bc2cafc.setIcon(icon_4ad3118aab9e9bafe381ed04d9d342ce);
+            
+    
+            var marker_0e81b415fe77849318b76dba36653023 = L.marker(
+                [43.2797058, -8.2085124],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_d532088b3e1816023f7d18b4ab95d93d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f696019b2e19151abf4eb91f33e54e24 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f70eea8f625e83216ee96cf29838a63f = $(`<div id="html_f70eea8f625e83216ee96cf29838a63f" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>O Candil</b><br>                 📍 a coruña<br>                 ⭐ 4.6 (747 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=15468354983340619000&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 981 20 21 70<br><a href='https://m.facebook.com/Cerveceria-O-Candil-151660231546574/?locale2=es_ES' target='_blank'>🔗 Web</a><br>📅 Reservable<br></div></div>`)[0];
+                popup_f696019b2e19151abf4eb91f33e54e24.setContent(html_f70eea8f625e83216ee96cf29838a63f);
+            
+        
+
+        marker_0e81b415fe77849318b76dba36653023.bindPopup(popup_f696019b2e19151abf4eb91f33e54e24)
+        ;
+
+        
+    
+    
+            marker_0e81b415fe77849318b76dba36653023.bindTooltip(
+                `<div>
+                     O Candil
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0e81b415fe77849318b76dba36653023.setIcon(icon_d532088b3e1816023f7d18b4ab95d93d);
+            
+    
+            var marker_a4599947cfd91f9b0140e700aacab763 = L.marker(
+                [43.369606, -8.416851],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_b2f50462d694e8680ef34888effbc7a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_39b820c2d7f857af9a3daf88cb80dcbf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1980dcb03a4bb42311f41bce29e2d10 = $(`<div id="html_a1980dcb03a4bb42311f41bce29e2d10" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Arriba la cuchara</b><br>                 📍 a coruña<br>                 ⭐ 4.6 (323 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=6961899401111588062" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 881 33 78 11<br><a href='https://arriba-la-cuchara.eatbu.com/' target='_blank'>🔗 Web</a><br>📅 Reservable<br><br><img src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/7b/6f/56/caption.jpg' width='200'></div></div>`)[0];
+                popup_39b820c2d7f857af9a3daf88cb80dcbf.setContent(html_a1980dcb03a4bb42311f41bce29e2d10);
+            
+        
+
+        marker_a4599947cfd91f9b0140e700aacab763.bindPopup(popup_39b820c2d7f857af9a3daf88cb80dcbf)
+        ;
+
+        
+    
+    
+            marker_a4599947cfd91f9b0140e700aacab763.bindTooltip(
+                `<div>
+                     Arriba la cuchara
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a4599947cfd91f9b0140e700aacab763.setIcon(icon_b2f50462d694e8680ef34888effbc7a4);
+            
+    
+            var marker_aaa66b06800241421425c943d2b5e16f = L.marker(
+                [43.36771, -8.40913],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_cee70beb19cbc0650dded081dc24f114 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_72879f795b576152bfcb5677f53ded81 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e4b550e9805abe8e785f5d58eb30f3c0 = $(`<div id="html_e4b550e9805abe8e785f5d58eb30f3c0" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Goiko - Rubine</b><br>                 📍 a coruña<br>                 ⭐ 4.5 (2990 reseñas) | 💶 2.0<br>                 <a href="https://maps.google.com/?cid=13687349495527387237" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 881 18 94 73<br><a href='https://www.goiko.com/' target='_blank'>🔗 Web</a><br><a href='https://tripadvisor.com/Commerce?p=Delivery_Takeaway&src=207678366&geo=19767234&from=Restaurants&area=reservation_button&slot=1&matchID=1&oos=0&cnt=1&silo=30023&bucket=942491&nrank=1&crank=1&clt=R&ttype=Restaurant&tm=333800527&managed=false&capped=false&gosox=PWD_XWj4sGdR_JHxOnjenkyv1LBYZaGpeB4MEHn-hv2mZBN376EHVCGusTIRxmJ8D_i1g-fZgmSAd6UnBLbVwLIlZ0e6qOM4Ks7vTw928-0&cs=1ec84d9c40329f8eec9feaa326867e7cc_7Wh' target='_blank'>📅 Reservar</a><br>🚚 Delivery<br>📅 Reservable<br><br><img src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/ff/6a/39/caption.jpg' width='200'></div></div>`)[0];
+                popup_72879f795b576152bfcb5677f53ded81.setContent(html_e4b550e9805abe8e785f5d58eb30f3c0);
+            
+        
+
+        marker_aaa66b06800241421425c943d2b5e16f.bindPopup(popup_72879f795b576152bfcb5677f53ded81)
+        ;
+
+        
+    
+    
+            marker_aaa66b06800241421425c943d2b5e16f.bindTooltip(
+                `<div>
+                     Goiko - Rubine
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aaa66b06800241421425c943d2b5e16f.setIcon(icon_cee70beb19cbc0650dded081dc24f114);
+            
+    
+            var marker_0845ed92282d8a36d10fb290a1138577 = L.marker(
+                [43.365734, -8.408357],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_7eb98ec594804a189e4ff256aac300e9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eed86c261eff8d40ea50c24836545262 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5c4118bd2d72ea855cf7da50ec293a9a = $(`<div id="html_5c4118bd2d72ea855cf7da50ec293a9a" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Pepita</b><br>                 📍 a coruña<br>                 ⭐ 4.5 (2644 reseñas) | 💶 2.0<br>                 <a href="https://maps.google.com/?cid=12032012393147620725&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 881 12 05 35<br><a href='https://www.lapepitaburgerbar.com/coruna' target='_blank'>🔗 Web</a><br>✉️ acoruna@lapepitaburgerbar.com<br><a href='https://www.lapepitaburgerbar.com/nuestra-carta' target='_blank'>📋 Menú</a><br>🚚 Delivery<br>📅 Reservable<br><br><img src='https://media-cdn.tripadvisor.com/media/photo-o/16/ef/08/c2/pepita-hindi-burger-de.jpg' width='200'></div></div>`)[0];
+                popup_eed86c261eff8d40ea50c24836545262.setContent(html_5c4118bd2d72ea855cf7da50ec293a9a);
+            
+        
+
+        marker_0845ed92282d8a36d10fb290a1138577.bindPopup(popup_eed86c261eff8d40ea50c24836545262)
+        ;
+
+        
+    
+    
+            marker_0845ed92282d8a36d10fb290a1138577.bindTooltip(
+                `<div>
+                     Pepita
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0845ed92282d8a36d10fb290a1138577.setIcon(icon_7eb98ec594804a189e4ff256aac300e9);
+            
+    
+            var marker_f9cc4124a7c82bb98b2574f62135e7d0 = L.marker(
+                [43.3746207497, -8.3973987465],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_a6bcb2b55932056abc21604fb7eceb6a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_33fc866fb8de1d90096c4e5baf9938ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_33294ae1b7e14624094168ad3b119251 = $(`<div id="html_33294ae1b7e14624094168ad3b119251" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Hamburgueseria 7+8 La Torre</b><br>                 📍 a coruña<br>                 ⭐ 4.5 (225 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=16519906787112011178" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 633 54 49 99<br>✉️ hamburgueseria7mas8latorre@gmail.com<br>🚚 Delivery<br></div></div>`)[0];
+                popup_33fc866fb8de1d90096c4e5baf9938ec.setContent(html_33294ae1b7e14624094168ad3b119251);
+            
+        
+
+        marker_f9cc4124a7c82bb98b2574f62135e7d0.bindPopup(popup_33fc866fb8de1d90096c4e5baf9938ec)
+        ;
+
+        
+    
+    
+            marker_f9cc4124a7c82bb98b2574f62135e7d0.bindTooltip(
+                `<div>
+                     Hamburgueseria 7+8 La Torre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f9cc4124a7c82bb98b2574f62135e7d0.setIcon(icon_a6bcb2b55932056abc21604fb7eceb6a);
+            
+    
+            var marker_26f60e4f7147e086f15d04b96da3d8e5 = L.marker(
+                [43.37753, -8.40459],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_7d92fac6375d769d2a428aabc40cb7b1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_70302c7a12092466e72b45ea842d4e33 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b2d178b25a9c59fe38265139071823d = $(`<div id="html_8b2d178b25a9c59fe38265139071823d" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Ocho_montealto</b><br>                 📍 a coruña<br>                 ⭐ 4.5 (178 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=5228372386905433665&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 981 20 49 06<br><a href='https://www.lacompe.es/' target='_blank'>🔗 Web</a><br>📅 Reservable<br></div></div>`)[0];
+                popup_70302c7a12092466e72b45ea842d4e33.setContent(html_8b2d178b25a9c59fe38265139071823d);
+            
+        
+
+        marker_26f60e4f7147e086f15d04b96da3d8e5.bindPopup(popup_70302c7a12092466e72b45ea842d4e33)
+        ;
+
+        
+    
+    
+            marker_26f60e4f7147e086f15d04b96da3d8e5.bindTooltip(
+                `<div>
+                     Ocho_montealto
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_26f60e4f7147e086f15d04b96da3d8e5.setIcon(icon_7d92fac6375d769d2a428aabc40cb7b1);
+            
+    
+            var marker_0c5a49b608396ef532798d701e0c7374 = L.marker(
+                [43.343323, -8.427242],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_cb063760ebff94e233fae745efdac13c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_48526126ee922c7e962e14b9348d951a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_777c0e2f6c1bff5ff0480934df435db2 = $(`<div id="html_777c0e2f6c1bff5ff0480934df435db2" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Goiko</b><br>                 📍 a coruña<br>                 ⭐ 4.4 (5293 reseñas) | 💶 2.0<br>                 <a href="https://maps.google.com/?cid=12452208806204904217&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 881 25 17 14<br><a href='http://www.goiko.com/' target='_blank'>🔗 Web</a><br><a href='https://www.goikogrill.com/menu-del-dia/' target='_blank'>📋 Menú</a><br>🚚 Delivery<br>📅 Reservable<br><br><img src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/ac/78/55/photo1jpg.jpg' width='200'></div></div>`)[0];
+                popup_48526126ee922c7e962e14b9348d951a.setContent(html_777c0e2f6c1bff5ff0480934df435db2);
+            
+        
+
+        marker_0c5a49b608396ef532798d701e0c7374.bindPopup(popup_48526126ee922c7e962e14b9348d951a)
+        ;
+
+        
+    
+    
+            marker_0c5a49b608396ef532798d701e0c7374.bindTooltip(
+                `<div>
+                     Goiko
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0c5a49b608396ef532798d701e0c7374.setIcon(icon_cb063760ebff94e233fae745efdac13c);
+            
+    
+            var marker_32a3dcb869c27aea5a2e6ff6cd0d428d = L.marker(
+                [43.31861, -8.372312],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_a0418671366239ca68095e40d8311cb9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c6fbde2c3c550ee5cf4d0c55b2c46e77 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5173f2c34f22754ff0d830f45560daf = $(`<div id="html_f5173f2c34f22754ff0d830f45560daf" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>S11</b><br>                 📍 a coruña<br>                 ⭐ 4.4 (1073 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=7630441538891387366" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 881 06 53 87<br><a href='https://www.facebook.com/eseonce.lasninas' target='_blank'>🔗 Web</a><br>📅 Reservable<br></div></div>`)[0];
+                popup_c6fbde2c3c550ee5cf4d0c55b2c46e77.setContent(html_f5173f2c34f22754ff0d830f45560daf);
+            
+        
+
+        marker_32a3dcb869c27aea5a2e6ff6cd0d428d.bindPopup(popup_c6fbde2c3c550ee5cf4d0c55b2c46e77)
+        ;
+
+        
+    
+    
+            marker_32a3dcb869c27aea5a2e6ff6cd0d428d.bindTooltip(
+                `<div>
+                     S11
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_32a3dcb869c27aea5a2e6ff6cd0d428d.setIcon(icon_a0418671366239ca68095e40d8311cb9);
+            
+    
+            var marker_94e98e89063e6c6a013005b6964f05a0 = L.marker(
+                [43.356808, -8.400838],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_02bd6798435939692638602426f33ffb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_05c856d377958ec4c97abd999742f2e6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff2472110d939cd10ae73473aa725014 = $(`<div id="html_ff2472110d939cd10ae73473aa725014" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>O Grelo</b><br>                 📍 a coruña<br>                 ⭐ 4.4 (129 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=1811671038668557740&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 981 13 14 75<br><a href='https://restauranteogrelo.com/' target='_blank'>🔗 Web</a><br></div></div>`)[0];
+                popup_05c856d377958ec4c97abd999742f2e6.setContent(html_ff2472110d939cd10ae73473aa725014);
+            
+        
+
+        marker_94e98e89063e6c6a013005b6964f05a0.bindPopup(popup_05c856d377958ec4c97abd999742f2e6)
+        ;
+
+        
+    
+    
+            marker_94e98e89063e6c6a013005b6964f05a0.bindTooltip(
+                `<div>
+                     O Grelo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_94e98e89063e6c6a013005b6964f05a0.setIcon(icon_02bd6798435939692638602426f33ffb);
+            
+    
+            var marker_189c6ddde9821d246150c1cd73a92033 = L.marker(
+                [43.37061, -8.39805],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_c27e12d79cfcc668778c1f2e994b8713 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc6694bb7e24d3487e6e8032f471d63f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c21b728617ceefdc70f91339bd33fc63 = $(`<div id="html_c21b728617ceefdc70f91339bd33fc63" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Cervecería Jamonería 1988</b><br>                 📍 a coruña<br>                 ⭐ 4.8 (38 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=2698410964760365798&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 604 06 43 50<br><a href='https://sabor-espana.com/' target='_blank'>🔗 Web</a><br>📅 Reservable<br><br><img src='https://media-cdn.tripadvisor.com/media/photo-o/08/fe/d0/12/restaurante-jamoneria.jpg' width='200'></div></div>`)[0];
+                popup_dc6694bb7e24d3487e6e8032f471d63f.setContent(html_c21b728617ceefdc70f91339bd33fc63);
+            
+        
+
+        marker_189c6ddde9821d246150c1cd73a92033.bindPopup(popup_dc6694bb7e24d3487e6e8032f471d63f)
+        ;
+
+        
+    
+    
+            marker_189c6ddde9821d246150c1cd73a92033.bindTooltip(
+                `<div>
+                     Cervecería Jamonería 1988
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_189c6ddde9821d246150c1cd73a92033.setIcon(icon_c27e12d79cfcc668778c1f2e994b8713);
+            
+    
+            var marker_c09655ba92840776d4374598ca972ee3 = L.marker(
+                [43.370544, -8.394881],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_a4a9e8011b36f9860cfee7549478ab2e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_efa7f7b0578b3194030a7d57b011d57d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_90c1526f2a42f7d7a2183b356c35611e = $(`<div id="html_90c1526f2a42f7d7a2183b356c35611e" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Pablo Gallego Restaurant</b><br>                 📍 a coruña<br>                 ⭐ 4.5 (976 reseñas) | 💶 3.0<br>                 <a href="https://maps.google.com/?cid=9232911717161481105&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 981 20 88 88<br><a href='https://restaurantepablogallego.com/' target='_blank'>🔗 Web</a><br>✉️ info@pablogallego.com<br>🚚 Delivery<br>📅 Reservable<br><br><img src='https://media-cdn.tripadvisor.com/media/photo-o/06/cd/90/55/la-luz-entrando-de-manana.jpg' width='200'></div></div>`)[0];
+                popup_efa7f7b0578b3194030a7d57b011d57d.setContent(html_90c1526f2a42f7d7a2183b356c35611e);
+            
+        
+
+        marker_c09655ba92840776d4374598ca972ee3.bindPopup(popup_efa7f7b0578b3194030a7d57b011d57d)
+        ;
+
+        
+    
+    
+            marker_c09655ba92840776d4374598ca972ee3.bindTooltip(
+                `<div>
+                     Pablo Gallego Restaurant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c09655ba92840776d4374598ca972ee3.setIcon(icon_a4a9e8011b36f9860cfee7549478ab2e);
+            
+    
+            var marker_99c88f1a82d9f7c730db9f592e7c0ac0 = L.marker(
+                [43.36571, -8.409521],
+                {
+}
+            ).addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+            var icon_f6a5e35a04869c645221e6fb1a4cbfde = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_362dfa00e03a91d975e510d12725d1fa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5c0b46814bca376f1faf1cb80f0b50b5 = $(`<div id="html_5c0b46814bca376f1faf1cb80f0b50b5" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Caffé Latte</b><br>                 📍 a coruña<br>                 ⭐ 4.5 (249 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=14403005526255332365&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 981 27 06 00<br><a href='https://www.facebook.com/caffelattecoruna/' target='_blank'>🔗 Web</a><br>✉️ caffelatte2018@hotmail.com<br>🚚 Delivery<br><br><img src='https://media-cdn.tripadvisor.com/media/photo-w/19/73/7f/e9/terraza-cubierta.jpg' width='200'></div></div>`)[0];
+                popup_362dfa00e03a91d975e510d12725d1fa.setContent(html_5c0b46814bca376f1faf1cb80f0b50b5);
+            
+        
+
+        marker_99c88f1a82d9f7c730db9f592e7c0ac0.bindPopup(popup_362dfa00e03a91d975e510d12725d1fa)
+        ;
+
+        
+    
+    
+            marker_99c88f1a82d9f7c730db9f592e7c0ac0.bindTooltip(
+                `<div>
+                     Caffé Latte
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_99c88f1a82d9f7c730db9f592e7c0ac0.setIcon(icon_f6a5e35a04869c645221e6fb1a4cbfde);
+            
+    
+            tile_layer_46d2ea96f24d0d9e5aed58f6b9cadf8d.addTo(map_6c694020a80e3f812d5158220e2ea7fb);
+        
+    
+                marker_074d3169d1d39481236b8bb37f449ea5.setIcon(icon_7368438aef96c83824d3bce3bd0e5d6f);
+            
+    
+                marker_6018d3ab892eeea67e96ff790187bc11.setIcon(icon_f0bdb94d9b5202503d6c44851dc9b2cd);
+            
+    
+                marker_b99e37c8bab0e332b1fb090de987793f.setIcon(icon_3412f66ee1bffa95e5524c1378acac2a);
+            
+    
+                marker_690ca56ccc6d994fa5f5c7b10bc2cafc.setIcon(icon_4ad3118aab9e9bafe381ed04d9d342ce);
+            
+    
+                marker_0e81b415fe77849318b76dba36653023.setIcon(icon_d532088b3e1816023f7d18b4ab95d93d);
+            
+    
+                marker_a4599947cfd91f9b0140e700aacab763.setIcon(icon_b2f50462d694e8680ef34888effbc7a4);
+            
+    
+                marker_aaa66b06800241421425c943d2b5e16f.setIcon(icon_cee70beb19cbc0650dded081dc24f114);
+            
+    
+                marker_0845ed92282d8a36d10fb290a1138577.setIcon(icon_7eb98ec594804a189e4ff256aac300e9);
+            
+    
+                marker_f9cc4124a7c82bb98b2574f62135e7d0.setIcon(icon_a6bcb2b55932056abc21604fb7eceb6a);
+            
+    
+                marker_26f60e4f7147e086f15d04b96da3d8e5.setIcon(icon_7d92fac6375d769d2a428aabc40cb7b1);
+            
+    
+                marker_0c5a49b608396ef532798d701e0c7374.setIcon(icon_cb063760ebff94e233fae745efdac13c);
+            
+    
+                marker_32a3dcb869c27aea5a2e6ff6cd0d428d.setIcon(icon_a0418671366239ca68095e40d8311cb9);
+            
+    
+                marker_94e98e89063e6c6a013005b6964f05a0.setIcon(icon_02bd6798435939692638602426f33ffb);
+            
+    
+                marker_189c6ddde9821d246150c1cd73a92033.setIcon(icon_c27e12d79cfcc668778c1f2e994b8713);
+            
+    
+                marker_c09655ba92840776d4374598ca972ee3.setIcon(icon_a4a9e8011b36f9860cfee7549478ab2e);
+            
+    
+                marker_99c88f1a82d9f7c730db9f592e7c0ac0.setIcon(icon_f6a5e35a04869c645221e6fb1a4cbfde);
+            
+</script>
+</html>
