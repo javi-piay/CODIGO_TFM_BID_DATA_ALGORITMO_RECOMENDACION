@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_68852ce35eb991057f0220007c7b476d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        bottom: 20px; left: 20px; width: 240px;
+        z-index:9999; font-size:14px;
+        background:white; padding:10px; border:2px solid grey; border-radius:8px;">
+    <b>🔎 Leyenda</b><br>
+    <i class="fa fa-user fa-lg" style="color:red"></i> Tu ubicación<br>
+    <i class="fa fa-star fa-lg" style="color:blue"></i> Top 3 restaurantes<br>
+    <i class="fa fa-cutlery fa-lg" style="color:gray"></i> Otros restaurantes
+    </div>
+    
+    
+            <div class="folium-map" id="map_68852ce35eb991057f0220007c7b476d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_68852ce35eb991057f0220007c7b476d = L.map(
+                "map_68852ce35eb991057f0220007c7b476d",
+                {
+                    center: [42.42672, -8.638546],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_adf566e90153d76eeabcb9efecdffe5d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_adf566e90153d76eeabcb9efecdffe5d.addTo(map_68852ce35eb991057f0220007c7b476d);
+        
+    
+            var marker_5f7dbe358308299e02af13241b83bfe5 = L.marker(
+                [42.428694, -8.644529],
+                {
+}
+            ).addTo(map_68852ce35eb991057f0220007c7b476d);
+        
+    
+            var icon_cff524366f92bb42728ef992494c932d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0f13115c0e27948cb73e1c5066b26ddd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c6bcc37e31066335e135d5ece0c5c115 = $(`<div id="html_c6bcc37e31066335e135d5ece0c5c115" style="width: 100.0%; height: 100.0%;">📍 Tu ubicación</div>`)[0];
+                popup_0f13115c0e27948cb73e1c5066b26ddd.setContent(html_c6bcc37e31066335e135d5ece0c5c115);
+            
+        
+
+        marker_5f7dbe358308299e02af13241b83bfe5.bindPopup(popup_0f13115c0e27948cb73e1c5066b26ddd)
+        ;
+
+        
+    
+    
+                marker_5f7dbe358308299e02af13241b83bfe5.setIcon(icon_cff524366f92bb42728ef992494c932d);
+            
+    
+            var marker_32a81d7335aa85c82438f6fdb66ddff8 = L.marker(
+                [42.42672, -8.638546],
+                {
+}
+            ).addTo(map_68852ce35eb991057f0220007c7b476d);
+        
+    
+            var icon_4de33572238198c8d73ed9322b985b7f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9d8b73cbc5e05925944f6cd5e22692c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa1905bc0e7252c17f1b77adff9d8942 = $(`<div id="html_fa1905bc0e7252c17f1b77adff9d8942" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Pizzería Carlos Pontevedra</b><br>                 📍 pontevedra<br>                 ⭐ 4.6 (1734 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=18055858016742034430&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 886 16 88 18<br><a href='http://pizzeriascarlos.es/' target='_blank'>🔗 Web</a><br>✉️ pontevedra@pizzeriacarlos.es<br>🚚 Delivery<br>📅 Reservable<br><br><img src='https://media-cdn.tripadvisor.com/media/photo-m/1280/24/ad/d0/d4/pizzeria-carlos-pontevedra.jpg' width='200'></div></div>`)[0];
+                popup_9d8b73cbc5e05925944f6cd5e22692c2.setContent(html_fa1905bc0e7252c17f1b77adff9d8942);
+            
+        
+
+        marker_32a81d7335aa85c82438f6fdb66ddff8.bindPopup(popup_9d8b73cbc5e05925944f6cd5e22692c2)
+        ;
+
+        
+    
+    
+            marker_32a81d7335aa85c82438f6fdb66ddff8.bindTooltip(
+                `<div>
+                     Pizzería Carlos Pontevedra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_32a81d7335aa85c82438f6fdb66ddff8.setIcon(icon_4de33572238198c8d73ed9322b985b7f);
+            
+    
+            var marker_d314b221802733df1e2eb19900346cd7 = L.marker(
+                [42.4324, -8.639648],
+                {
+}
+            ).addTo(map_68852ce35eb991057f0220007c7b476d);
+        
+    
+            var icon_5d74f59f356e127d67178af60c6b3b5b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e0a66b804a70af63d8265d80afd23087 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_085457013c2403e14947d90e27bb51d6 = $(`<div id="html_085457013c2403e14947d90e27bb51d6" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Pizzería NONNA CLARA trattoria</b><br>                 📍 pontevedra<br>                 ⭐ 4.5 (518 reseñas) | 💶 1.0<br>                 <a href="https://maps.google.com/?cid=5465779710063931931&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 986 10 40 50<br><a href='http://www.nonnaclara.es/' target='_blank'>🔗 Web</a><br>✉️ reservas@nonnaclara.es<br>📅 Reservable<br><br><img src='https://media-cdn.tripadvisor.com/media/photo-m/1280/28/4a/24/8f/restaurante-nonna-clara.jpg' width='200'></div></div>`)[0];
+                popup_e0a66b804a70af63d8265d80afd23087.setContent(html_085457013c2403e14947d90e27bb51d6);
+            
+        
+
+        marker_d314b221802733df1e2eb19900346cd7.bindPopup(popup_e0a66b804a70af63d8265d80afd23087)
+        ;
+
+        
+    
+    
+            marker_d314b221802733df1e2eb19900346cd7.bindTooltip(
+                `<div>
+                     Pizzería NONNA CLARA trattoria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d314b221802733df1e2eb19900346cd7.setIcon(icon_5d74f59f356e127d67178af60c6b3b5b);
+            
+    
+            var marker_209f924f7a687e753e84377de373e8a4 = L.marker(
+                [42.428116, -8.640911],
+                {
+}
+            ).addTo(map_68852ce35eb991057f0220007c7b476d);
+        
+    
+            var icon_e45280cce7f3981f6d68584559cf5722 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_60083cccaab75136de9b8f965ca76555 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79aef47162a66e27df762ad018033c27 = $(`<div id="html_79aef47162a66e27df762ad018033c27" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>Il Piccolo</b><br>                 📍 pontevedra<br>                 ⭐ 4.4 (2859 reseñas) | 💶 2.0<br>                 <a href="https://maps.google.com/?cid=12637090998901812017&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA" target="_blank">🌐 Abrir en Google Maps</a><br>             📞 +34 986 85 99 99<br><a href='https://ristoranteilpiccolo.com/' target='_blank'>🔗 Web</a><br>✉️ info@ristoranteilpiccolo.es<br><a href='https://ristoranteilpiccolo.es/menu_piccolo.pdf' target='_blank'>📋 Menú</a><br>📅 Reservable<br><br><img src='https://media-cdn.tripadvisor.com/media/photo-o/11/10/17/8d/vista-restaurante.jpg' width='200'></div></div>`)[0];
+                popup_60083cccaab75136de9b8f965ca76555.setContent(html_79aef47162a66e27df762ad018033c27);
+            
+        
+
+        marker_209f924f7a687e753e84377de373e8a4.bindPopup(popup_60083cccaab75136de9b8f965ca76555)
+        ;
+
+        
+    
+    
+            marker_209f924f7a687e753e84377de373e8a4.bindTooltip(
+                `<div>
+                     Il Piccolo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_209f924f7a687e753e84377de373e8a4.setIcon(icon_e45280cce7f3981f6d68584559cf5722);
+            
+    
+            var marker_76523b29fa9373e7f0f91a028e520de4 = L.marker(
+                [42.4285745, -8.6415071],
+                {
+}
+            ).addTo(map_68852ce35eb991057f0220007c7b476d);
+        
+    
+            var icon_b9a812b5e4765e3077403b94b62de26f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_91f47ebb023acd545702fee8e0ed056b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b793f360f761d48d09d0afd7194215de = $(`<div id="html_b793f360f761d48d09d0afd7194215de" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">                 <b>El patio Kinder Bar</b><br>                 📍 pontevedra<br>                 ⭐ nan (727 reseñas) | 💶 ?<br>                 <a href="nan" target="_blank">🌐 Abrir en Google Maps</a><br>             </div></div>`)[0];
+                popup_91f47ebb023acd545702fee8e0ed056b.setContent(html_b793f360f761d48d09d0afd7194215de);
+            
+        
+
+        marker_76523b29fa9373e7f0f91a028e520de4.bindPopup(popup_91f47ebb023acd545702fee8e0ed056b)
+        ;
+
+        
+    
+    
+            marker_76523b29fa9373e7f0f91a028e520de4.bindTooltip(
+                `<div>
+                     El patio Kinder Bar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_76523b29fa9373e7f0f91a028e520de4.setIcon(icon_b9a812b5e4765e3077403b94b62de26f);
+            
+    
+            tile_layer_adf566e90153d76eeabcb9efecdffe5d.addTo(map_68852ce35eb991057f0220007c7b476d);
+        
+    
+                marker_5f7dbe358308299e02af13241b83bfe5.setIcon(icon_cff524366f92bb42728ef992494c932d);
+            
+    
+                marker_32a81d7335aa85c82438f6fdb66ddff8.setIcon(icon_4de33572238198c8d73ed9322b985b7f);
+            
+    
+                marker_d314b221802733df1e2eb19900346cd7.setIcon(icon_5d74f59f356e127d67178af60c6b3b5b);
+            
+    
+                marker_209f924f7a687e753e84377de373e8a4.setIcon(icon_e45280cce7f3981f6d68584559cf5722);
+            
+    
+                marker_76523b29fa9373e7f0f91a028e520de4.setIcon(icon_b9a812b5e4765e3077403b94b62de26f);
+            
+</script>
+</html>
