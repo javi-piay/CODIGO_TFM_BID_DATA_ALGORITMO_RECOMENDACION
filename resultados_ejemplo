@@ -1,0 +1,70 @@
+ 👋 Bienvenido al recomendador gastronómico
+
+📍 Ciudades disponibles: a coruña, lugo, ourense, pontevedra, santiago, vigo
+📍 ¿En qué ciudad quieres comer? pontevedra
+
+💰 Precio máximo (1=barato ... 4=caro, ENTER = sin Precio máximo): 
+
+⭐ Rating mínimo (ej: 4.0, ENTER = sin Rating mínimo ): 
+
+📋 Categorías gastronómicas disponibles y sus subcategorías:
+   - africana
+   - asiática → [ramen, china, japonesa, india]
+   - carnes
+   - desayunos → [brunch, cafetería]
+   - dulces → [helados, pastelerías]
+   - española → [pescados, menú_del_día, arroces, tapas, pulpo, mariscos, cocina_gallega]
+   - europea
+   - gourmet → [menú_degustación]
+   - hamburguesas
+   - italiana
+   - latina → [venezolana, brasileña, salvadoreña, peruana, boliviana, argentina]
+   - mexicana
+   - pizza
+   - poke
+   - rápida → [bocadillos, autoservicio]
+   - turca
+   - veggie → [vegetariano, vegano, sin_gluten]
+   - árabe
+🍔 Indica una o varias categorías separadas por coma (ej: pizza, veggie, italiana). ENTER = ninguna: pizza, veggie
+✅ Categorías seleccionadas: pizza, veggie
+
+📋 Subcategorías disponibles para veggie:
+   - vegetariano
+   - vegano
+   - sin_gluten
+👉 ¿Quieres alguna subcategoría de veggie? (ENTER = sin subcategoría): 
+
+🔎 ¿Quieres afinar con un término libre (ej: terraza, barato, menú degustación...)? ENTER = ninguno: 
+
+📅 ¿Quieres filtrar por día y horario de apertura? (s/n): n
+
+🚗 Introduce tu dirección (ej: 'Rúa do Franco 10, Santiago de Compostela, A Coruña') ENTER = sin dirección: 
+ℹ️ No se indicó dirección. Se continuará sin ubicación.
+
+✅ Aquí tienes tus recomendaciones:
+➡️ Pizzería Carlos Pontevedra (pontevedra) ⭐ 4.6 (1734 reseñas) 💰 1.0
+   https://maps.google.com/?cid=18055858016742034430&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA
+   📝 Este restaurante se ha elegido porque cumple: 📌 Coincide con flag_pizza + flag_veggie
+
+➡️ Pizzería NONNA CLARA trattoria (pontevedra) ⭐ 4.5 (518 reseñas) 💰 1.0
+   https://maps.google.com/?cid=5465779710063931931&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA
+   📝 Este restaurante se ha elegido porque cumple: 📌 Coincide con flag_pizza + flag_veggie
+
+➡️ Il Piccolo (pontevedra) ⭐ 4.4 (2859 reseñas) 💰 2.0
+   https://maps.google.com/?cid=12637090998901812017&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA
+   📝 Este restaurante se ha elegido porque cumple: 📌 Coincide con flag_pizza + flag_veggie
+
+➡️ Pizzeria La Bella Napoli 1970 (pontevedra) ⭐ 4.4 (744 reseñas) 💰 2.0
+   https://maps.google.com/?cid=734074220193173779&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA
+   📝 Este restaurante se ha elegido porque cumple: 📌 Coincide con flag_pizza + flag_veggie
+
+➡️ Pizzería Rebusca 46 (pontevedra) ⭐ 4.3 (971 reseñas) 💰 1.0
+   https://maps.google.com/?cid=7399004112803315778&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA
+   📝 Este restaurante se ha elegido porque cumple: 📌 Coincide con flag_pizza + flag_veggie
+
+➡️ Cambalache (pontevedra) ⭐ 4.0 (1275 reseñas) 💰 1.0
+   https://maps.google.com/?cid=6865586858979729271&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA
+   📝 Este restaurante se ha elegido porque cumple: 📌 Coincide con flag_pizza + flag_veggie
+
+Make this Notebook Trusted to load map: File -> Trust Notebook
